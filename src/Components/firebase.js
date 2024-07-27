@@ -7,13 +7,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA0Aj0MO_RC9mTJe-BVbZvCX7at0anTi5Q",
-  authDomain: "eduorbit-ccbb0.firebaseapp.com",
-  projectId: "eduorbit-ccbb0",
-  storageBucket: "eduorbit-ccbb0.appspot.com",
-  messagingSenderId: "493346251096",
-  appId: "1:493346251096:web:61b1e728fbef8dc8ec052d",
-  measurementId: "G-3Z55HV17C6"
+  apiKey: "AIzaSyC15hqfX95yI9Bvu6QVcrL2z_GA_4gI_a8",
+  authDomain: "eduo-df84e.firebaseapp.com",
+  projectId: "eduo-df84e",
+  storageBucket: "eduo-df84e.appspot.com",
+  messagingSenderId: "644360352570",
+  appId: "1:644360352570:web:12083c1024f33ffb631603",
+  measurementId: "G-G0R7KYYSL7"
 };
 
 // Initialize Firebase
