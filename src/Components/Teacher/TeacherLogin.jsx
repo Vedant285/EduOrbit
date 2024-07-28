@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import firebase from '../firebase'
 import Swal from 'sweetalert2'
 
 const baseUrl='https://minipro.pythonanywhere.com/api'
