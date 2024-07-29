@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/EduOrbit/static/css/main.a736ad8b.css",
+    "main.js": "/EduOrbit/static/js/main.3038dc17.js",
+    "static/js/453.65137d6e.chunk.js": "/EduOrbit/static/js/453.65137d6e.chunk.js",
+    "static/media/about.jpg": "/EduOrbit/static/media/about.63f3dda3eab35f8fcd02.jpg",
+    "static/media/darkside.mp4": "/EduOrbit/static/media/darkside.c0ca2edd57eda17d4865.mp4",
+    "index.html": "/EduOrbit/index.html",
+    "main.a736ad8b.css.map": "/EduOrbit/static/css/main.a736ad8b.css.map",
+    "main.3038dc17.js.map": "/EduOrbit/static/js/main.3038dc17.js.map",
+    "453.65137d6e.chunk.js.map": "/EduOrbit/static/js/453.65137d6e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a736ad8b.css",
+    "static/js/main.3038dc17.js"
+  ]
+}
