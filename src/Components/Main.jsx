@@ -55,7 +55,6 @@ import Pages from './Pages'
 import MyTeachers from './User/MyTeachers'
 import AttemptedQuiz from './Teacher/AttemptedQuiz'
 import MiniVideoPlayer from './MiniVideoPlayer'
-import { useEffect } from 'react'
 import Policy from './Policy'
 
 const Main = () => {
