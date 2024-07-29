@@ -1,8 +1,12 @@
 import { Module } from "@nestjs/common";
+import { EnrollmentModule } from "./enrollment/enrollment.module";
 import { ModuleModelModule } from "./moduleModel/moduleModel.module";
 import { CourseModule } from "./course/course.module";
-import { EnrollmentModule } from "./enrollment/enrollment.module";
 import { UserModule } from "./user/user.module";
+import { UserPreferenceModule } from "./userPreference/userPreference.module";
+import { PostModule } from "./post/post.module";
+import { CommentModule } from "./comment/comment.module";
+import { LikeModule } from "./like/like.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -15,10 +19,14 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 @Module({
   controllers: [],
   imports: [
+    EnrollmentModule,
     ModuleModelModule,
     CourseModule,
-    EnrollmentModule,
     UserModule,
+    UserPreferenceModule,
+    PostModule,
+    CommentModule,
+    LikeModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

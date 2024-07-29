@@ -19,6 +19,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { EnrollmentService } from "../enrollment.service";
 import { EnrollmentCreateInput } from "./EnrollmentCreateInput";
 import { Enrollment } from "./Enrollment";
+import { Post } from "../../post/base/Post";
 import { EnrollmentFindManyArgs } from "./EnrollmentFindManyArgs";
 import { EnrollmentWhereUniqueInput } from "./EnrollmentWhereUniqueInput";
 import { EnrollmentUpdateInput } from "./EnrollmentUpdateInput";

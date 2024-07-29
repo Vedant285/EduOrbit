@@ -19,6 +19,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { CourseService } from "../course.service";
 import { CourseCreateInput } from "./CourseCreateInput";
 import { Course } from "./Course";
+import { Post } from "../../post/base/Post";
 import { CourseFindManyArgs } from "./CourseFindManyArgs";
 import { CourseWhereUniqueInput } from "./CourseWhereUniqueInput";
 import { CourseUpdateInput } from "./CourseUpdateInput";

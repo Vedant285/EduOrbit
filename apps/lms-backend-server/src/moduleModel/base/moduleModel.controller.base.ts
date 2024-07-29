@@ -19,6 +19,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { ModuleModelService } from "../moduleModel.service";
 import { ModuleModelCreateInput } from "./ModuleModelCreateInput";
 import { ModuleModel } from "./ModuleModel";
+import { Post } from "../../post/base/Post";
 import { ModuleModelFindManyArgs } from "./ModuleModelFindManyArgs";
 import { ModuleModelWhereUniqueInput } from "./ModuleModelWhereUniqueInput";
 import { ModuleModelUpdateInput } from "./ModuleModelUpdateInput";

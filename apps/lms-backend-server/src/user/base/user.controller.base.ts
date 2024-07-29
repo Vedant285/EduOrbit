@@ -19,9 +19,13 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { UserService } from "../user.service";
 import { UserCreateInput } from "./UserCreateInput";
 import { User } from "./User";
+import { Post } from "../../post/base/Post";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserUpdateInput } from "./UserUpdateInput";
+import { LikeFindManyArgs } from "../../like/base/LikeFindManyArgs";
+import { Like } from "../../like/base/Like";
+import { LikeWhereUniqueInput } from "../../like/base/LikeWhereUniqueInput";
 
 export class UserControllerBase {
   constructor(protected readonly service: UserService) {}
@@ -150,5 +154,92 @@ export class UserControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/likes")
+  @ApiNestedQuery(LikeFindManyArgs)
+  async findLikes(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<Like[]> {
+    const query = plainToClass(LikeFindManyArgs, request.query);
+    const results = await this.service.findLikes(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        post: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/likes")
+  async connectLikes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: LikeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      likes: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/likes")
+  async updateLikes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: LikeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      likes: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/likes")
+  async disconnectLikes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: LikeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      likes: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

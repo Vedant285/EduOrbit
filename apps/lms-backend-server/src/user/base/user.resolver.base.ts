@@ -20,6 +20,8 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { CreateUserArgs } from "./CreateUserArgs";
 import { UpdateUserArgs } from "./UpdateUserArgs";
 import { DeleteUserArgs } from "./DeleteUserArgs";
+import { LikeFindManyArgs } from "../../like/base/LikeFindManyArgs";
+import { Like } from "../../like/base/Like";
 import { UserService } from "../user.service";
 @graphql.Resolver(() => User)
 export class UserResolverBase {
@@ -85,5 +87,19 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.ResolveField(() => [Like], { name: "likes" })
+  async findLikes(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: LikeFindManyArgs
+  ): Promise<Like[]> {
+    const results = await this.service.findLikes(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }
